@@ -30,9 +30,15 @@ public class BankingDAO {
 					// On récupère les champs de l'enregistrement courant
 					result = resultSet.getFloat("Total");
 				}
-			}
-		}
+			} catch (Exception ex) {
+                             throw ex;    
+                         }
+		
 		return result;
+                }
+                catch (Exception ex) {
+                    throw ex;    
+                        }
 	}
 	
 	/**
@@ -72,6 +78,9 @@ public class BankingDAO {
 				 // On revient au mode de fonctionnement sans transaction
 				myConnection.setAutoCommit(true);				
 			}
-		}
+		} catch (Exception ex) {
+                   
+                    throw ex;
+                }
 	}
 }
